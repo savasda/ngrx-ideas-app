@@ -1,3 +1,5 @@
+import { AuthDTO } from './models/auth';
+import { LoginUser, RegisterUser, SetInitialUser, SetCurentUser } from '@app/store/actions/auth.action';
 import { AddError, RemoveError } from './store/actions/error.action';
 import { AppState } from './store/app-store.module';
 import { Component, OnInit } from '@angular/core';
@@ -14,8 +16,7 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<AppState>) {  }
 
   ngOnInit() {
-    this.store.dispatch(new AddError({error: 'message'}));
-    this.store.dispatch(new RemoveError())
+    this.store.dispatch(new SetInitialUser());
   }
 
 }
